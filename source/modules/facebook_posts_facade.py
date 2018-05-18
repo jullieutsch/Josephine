@@ -2,10 +2,8 @@ import facebook
 import redis
 
 class FacebookPostsFacade:
-	
-	PAGE_ALIAS = "bozonaro"
-	
-	def save_post_by_post_id(db, post):
+		
+	def save_post_by_post_id(db, post, page_alias):
 		try:
 			db.set("posts:" + PAGE_ALIAS + ":unsaved:" + post["id"], post["message"])
 		except KeyError:
@@ -15,7 +13,7 @@ class FacebookPostsFacade:
 				db.set("posts:" + PAGE_ALIAS + ":unsaved:" + post["id"], "No message nor story")
 
 
-	def iterate_and_save_posts(db, posts, graph):
+	def iterate_and_save_posts(db, graph, posts, page_alias, graph):
 		while True:
 			[save_post_by_post_id(db=db, post=post) for post in posts['data']]
 			

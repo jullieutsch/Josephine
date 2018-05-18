@@ -9,5 +9,6 @@ class FacebookController:
 
 	def save_all_posts_from_a_page_in_a_pile(self):
 		page_id = input("Please, enter page id")
-		facebook_facade.get_all_posts_from_page(page_id)
+		page_alias = input("Please, insert page alias for database")
+		facebook_facade.get_all_posts_from_page(page_id, page_alias)
 		#comments_facade.get_all_comments_from_posts_pile(page_id)

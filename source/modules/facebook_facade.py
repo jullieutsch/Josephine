@@ -10,10 +10,12 @@ class FacebookFacade():
 		self.db = redis.StrictRedis()
 
 
-	def get_all_posts_from_page(self, page_id):
-		posts = new FacebookPostsFacade(self.get_page_posts(page_id))
+	def get_all_posts_from_page(self, page_id, page_alias):
+		posts = new FacebookPostsFacade(db, graph, 
+			self.get_page_posts(page_id), 
+			page_alias)
 
-	def get_page_posts(self,page_id):
+	def get_page_posts(self, page_id):
 		try:
 			self.graph.get_object(page_id)
 			return graph.get_connections(page['id'], 'posts', limit=500)
