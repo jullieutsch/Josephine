@@ -1,6 +1,6 @@
 import facebook
 import redis
-from source.modules.facebook_post_facade import FacebookPostFacade
+from source.modules.facebook_posts_facade import FacebookPostsFacade
 
 class FacebookFacade():
 
@@ -11,14 +11,14 @@ class FacebookFacade():
 
 
 	def get_all_posts_from_page(self, page_id, page_alias):
-		posts = new FacebookPostsFacade(db, graph, 
+		posts = FacebookPostsFacade(self.db, self.graph, 
 			self.get_page_posts(page_id), 
 			page_alias)
 
 	def get_page_posts(self, page_id):
 		try:
-			self.graph.get_object(page_id)
-			return graph.get_connections(page['id'], 'posts', limit=500)
+			page = self.graph.get_object(page_id)
+			return self.graph.get_connections(page['id'], 'posts', limit=100)
 		except facebook.GraphAPIError:
 			raise ValueError()
 
