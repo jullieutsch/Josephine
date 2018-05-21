@@ -1,4 +1,5 @@
 /old
 /facebookenv
-/__pycache__
+*/__pycache__
 dump.rdb
+*.pyc 

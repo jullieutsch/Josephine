@@ -1,5 +1,5 @@
 import unittest
-from source.modules.facebook_facade import FacebookFacade
+from modules.facebook_facade import FacebookFacade
 
 class TestFacebookFacade(unittest.TestCase):
 			

@@ -1,6 +1,6 @@
 import facebook
 import redis
-from source.modules.facebook_posts_facade import FacebookPostsFacade
+from modules.facebook_posts_facade import FacebookPostsFacade
 
 class FacebookFacade():
 
