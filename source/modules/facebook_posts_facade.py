@@ -4,9 +4,6 @@ import requests
 
 class FacebookPostsFacade:
 	
-	def __init__(self, db, graph, posts, page_alias):	
-		self.iterate_and_save_posts(db, graph, posts, page_alias)
-
 	def save_post_by_post_id(self, db, post, page_alias):
 		try:
 			db.set("posts:" + page_alias + ":unsaved:" + post["id"], post["message"])
