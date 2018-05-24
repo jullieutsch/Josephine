@@ -10,7 +10,7 @@ class FacebookFacade():
 		self.graph = facebook.GraphAPI(first_access_token)
 		self.db = redis.StrictRedis()
 		self.posts_facade = FacebookPostsFacade()
-		self.comments_facade = FacebookCommentsFacade(self.db)
+		self.comments_facade = FacebookCommentsFacade(self.db, self.graph)
 
 	def get_all_posts_from_page(self, page_id, page_alias):
 		page_posts_connection = self.get_page_posts(page_id)
@@ -24,8 +24,8 @@ class FacebookFacade():
 		except facebook.GraphAPIError:
 			raise ValueError()
 
-	def get_all_comments_from_posts_pile(self):
-		self.comments_facade.iterate_and_save_comments_from_pile()
+	def get_all_comments_from_posts_pile(self, page_alias):
+		self.comments_facade.iterate_and_save_comments_from_pile(page_alias)
 
 
 
