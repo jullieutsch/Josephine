@@ -9,7 +9,7 @@ class TestFacebookComment(unittest.TestCase):
 		comment_data = {'message': 'hello, world', 'id': '123', 'created_time': '12345'}
 		facebook_comment = FacebookComment()
 		facebook_comment.save(db, comment_data)
-		assert facebook_comment.comment_map["message"] == "hello, world"
+		db.hmset.assert_called_with("comments::saved:123", comment_data)
 
 	def test_should_save_on_redis_with_proper_object(self):
 		db = MagicMock()

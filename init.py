@@ -1,17 +1,16 @@
 from source.controllers.facebook_controller import FacebookController
-import source.controllers
-import source.modules
-
-def __init__(self):
-	self.facebook_facade = FacebookFacade()
-	self.controller = FacebookController(facebook_facade)
+from source.modules.facebook_facade import FacebookFacade
 
 def main():	
-	print("Saving all posts from a page")
-	self.controller.save_all_posts_from_a_page_in_a_pile()
+	facebook_facade = FacebookFacade()
+	controller = FacebookController(facebook_facade)
 
-def save_all_comments_from_pile()
-	self.controller.save_all_comments_from_pile()
+	#print("Saving all posts for post pile.")
+	#controller.save_all_posts_from_a_page_in_a_pile()
+	#print("Saving all comments from a page.")
+	#controller.saves_all_comments_from_unsaved_posts_pile()
+	#controller.append_comments_in_single_corpus()
+	controller.generate_word_cloud()
 
 if __name__ == "__main__":
 	main()
