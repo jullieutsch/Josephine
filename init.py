@@ -1,9 +1,10 @@
 from source.controllers.facebook_controller import FacebookController
 from source.modules.facebook_facade import FacebookFacade
+import source.modules.comments_analysis
 
 def main():	
 	facebook_facade = FacebookFacade()
-	controller = FacebookController(facebook_facade)
+	controller = FacebookController(facebook_facade, comments_analysis)
 
 	#print("Saving all posts for post pile.")
 	#controller.save_all_posts_from_a_page_in_a_pile()
