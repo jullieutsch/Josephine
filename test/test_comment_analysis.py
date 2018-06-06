@@ -16,11 +16,12 @@ class TestCommentAnalysis(unittest.TestCase):
 		self.comment_analysis.get_comment_date = MagicMock()
 		
 		self.db_mock.keys.assert_called()
-		#self.comment_analysis.get_comment_date.assert_called()
+		self.assertEqual(self.db_mock.get.call_count, 2)
 
 	def fake_db_definition(self):
 		self.db_mock = MagicMock()
 		self.db_mock.keys = Mock(return_value = ["first_key", "second_key"])
+		self.db_mock.get = MagicMock()
 
 	"""def face_db_ocurrences_generator():
 		return "{[
