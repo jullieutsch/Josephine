@@ -9,6 +9,9 @@ class TestFacebookController(unittest.TestCase):
 
 	@classmethod
 	def setUp(self):
+		original_input = __builtins__.input
+		__builtins__.input = lambda _: "some_input_value"
+		
 		self.facebook_facade = FacebookFacade()
 		self.comment_analysis = modules.comment_analysis
 		self.controller = FacebookController(self.facebook_facade, 
