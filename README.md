@@ -6,8 +6,11 @@ Currently, Josephine only works for Linux Environments.
 Requirements:
 
 -LinuxEnvironment
+
 -Python 3
+
 -Redis Server on
+
 -Facebook for Python
 
 # Install Josephine
